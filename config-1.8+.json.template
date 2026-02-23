@@ -62,7 +62,7 @@
         "fakeip": {
             "enabled": true,
             "inet4_range": "198.18.0.0/15",
-            "inet6_range": "2001:db8::/32"
+            "inet6_range": "2001:0470:f9da:fdfa::1/64"
         }
     },
     "inbounds": [
