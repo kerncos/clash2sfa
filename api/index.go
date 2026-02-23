@@ -6,7 +6,6 @@ import (
 	"os"
 	"sync"
 
-	"github.com/samber/lo"
 	"github.com/xmdhs/clash2sfa/provide"
 )
 
@@ -16,8 +15,10 @@ var handleOnce = sync.OnceValue(func() http.Handler {
 	h := slog.NewJSONHandler(os.Stderr, &slog.HandlerOptions{
 		Level: level,
 	})
-	handle, _, err := provide.InitializeServer(h)
-	lo.Must0(err)
+	handle, err := provide.NewHandler(h)
+	if err != nil {
+		panic(err)
+	}
 	return handle
 })
 

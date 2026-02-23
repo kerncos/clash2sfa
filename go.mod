@@ -12,10 +12,14 @@ require (
 
 require filippo.io/intermediates v0.0.0-20251123024744-a07bfa91ec35
 
-require github.com/tidwall/jsonc v0.3.2
+require (
+	github.com/samber/do/v2 v2.0.0
+	github.com/tidwall/jsonc v0.3.2
+)
+
+require github.com/samber/go-type-to-string v1.8.0 // indirect
 
 require (
-	github.com/google/wire v0.7.0
 	github.com/tidwall/match v1.2.0 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	golang.org/x/exp v0.0.0-20251113190631-e25ba8c21ef6 // indirect

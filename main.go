@@ -10,7 +10,7 @@ import (
 
 	"log/slog"
 
-	"github.com/samber/lo"
+	"github.com/samber/do/v2"
 	"github.com/xmdhs/clash2sfa/provide"
 )
 
@@ -32,7 +32,9 @@ func main() {
 		Level: level,
 	})
 
-	handler, _ := lo.Must2(provide.InitializeServer(h))
+	injector := do.New()
+	provide.RegisterProviders(injector, h)
+	handler := do.MustInvoke[http.Handler](injector)
 
 	s := http.Server{
 		ReadTimeout:       30 * time.Second,
